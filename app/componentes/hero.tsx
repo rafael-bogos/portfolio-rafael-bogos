@@ -108,14 +108,14 @@ export function Hero() {
 
                 <h1
                     className="font-bold bg-gradient-to-r from-purple-500 via-cyan-500 to-purple-500 bg-clip-text text-transparent animate-gradient drop-shadow-lg mb-6
-              text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+              text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl break-words"
                 >
                     Rafael Bogos
                 </h1>
 
                 {/* Typing effect */}
-                <div className="h-16 sm:h-20 flex items-center justify-center mb-8">
-                    <p className="text-gray-300 text-xl sm:text-2xl md:text-3xl font-medium">
+                <div className="h-16 sm:h-20 flex items-center justify-center mb-8 px-4">
+                    <p className="text-gray-300 text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium break-words text-center">
                         <span className="font-code text-cyan-400">role:</span>{" "}
                         <span className="text-purple-400">"{displayText}"</span>
                         <span className="animate-pulse text-cyan-400">|</span>
