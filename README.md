@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💼 Portfólio Profissional - Rafael Bogos
 
-## Getting Started
+Um portfólio moderno e interativo desenvolvido com Next.js 15, React 19 e Tailwind CSS 4, com foco em design minimalista e estética de código.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🎨 **Design Moderno**: Interface com tema dark e gradientes purple/cyan
+- 💻 **Tema de Código**: Elementos visuais inspirados em terminal e editores de código
+- ⚡ **Animações Suaves**: Framer Motion para transições e micro-interações
+- 📱 **Totalmente Responsivo**: Design adaptável para todos os dispositivos
+- 🎯 **Partículas Interativas**: Background com efeito de estrelas
+- ⌨️ **Efeito de Digitação**: Animação de typing no hero
+- 🗺️ **Timeline Visual**: Seção About com linha do tempo interativa
+- 🛠️ **Tech Stack Cards**: Projetos com tecnologias destacadas
+- 📬 **Formulário de Contato**: Integrado com FormSubmit
+
+## 🚀 Tecnologias
+
+- **Framework**: Next.js 15 (com Turbopack)
+- **UI Library**: React 19
+- **Styling**: Tailwind CSS 4
+- **Animações**: Framer Motion
+- **Ícones**: React Icons
+- **Animações Lottie**: Lottie React
+- **Partículas**: React TSParticles
+- **Validação**: Zod
+- **Tipagem**: TypeScript
+
+## 📦 Estrutura do Projeto
+
+```
+portfolio-dev/
+├── app/
+│   ├── componentes/
+│   │   ├── navbar.tsx         # Navegação fixa
+│   │   ├── hero.tsx           # Seção inicial com typing effect
+│   │   ├── about.tsx          # Sobre com timeline
+│   │   ├── projects.tsx       # Projetos com tech stack
+│   │   ├── skills.tsx         # Skills com progress bars
+│   │   ├── contact.tsx        # Formulário de contato
+│   │   └── footer.tsx         # Rodapé
+│   ├── globals.css            # Estilos globais
+│   ├── layout.tsx             # Layout principal
+│   └── page.tsx               # Home page
+├── public/
+│   └── rocket-launch.json     # Animação Lottie
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Customização
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Atualizar Informações Pessoais
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Navbar** (`componentes/navbar.tsx`):
+   - Atualizar links sociais
+   - Modificar seções do menu
 
-## Learn More
+2. **Hero** (`componentes/hero.tsx`):
+   - Editar roles no array `roles`
+   - Personalizar mensagens
 
-To learn more about Next.js, take a look at the following resources:
+3. **About** (`componentes/about.tsx`):
+   - Modificar timeline com sua experiência
+   - Atualizar descrição
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Projetos** (`componentes/projects.tsx`):
+   - Adicionar seus projetos reais no array `projects`
+   - Incluir tech stack de cada projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **Skills** (`componentes/skills.tsx`):
+   - Atualizar arrays `frontEndSkills` e `backEndSkills`
+   - Ajustar níveis de proficiência
 
-## Deploy on Vercel
+6. **Contato** (`componentes/contact.tsx`):
+   - Configurar e-mail no FormSubmit
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Instalação e Uso
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Instalar dependências
+npm install
+
+# Rodar em desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+
+# Iniciar servidor de produção
+npm start
+```
+
+## 📝 Próximos Passos
+
+- [ ] Adicionar seus projetos reais
+- [ ] Atualizar timeline com suas experiências
+- [ ] Configurar meta tags para SEO
+- [ ] Adicionar Google Analytics
+- [ ] Criar versão em inglês (i18n)
+- [ ] Adicionar blog/artigos
+- [ ] Implementar tema claro/escuro
+
+## 🎯 Deploy
+
+Recomendado para deploy:
+- [Vercel](https://vercel.com) (recomendado para Next.js)
+- [Netlify](https://netlify.com)
+- [Railway](https://railway.app)
+
+```bash
+# Deploy na Vercel
+npm i -g vercel
+vercel
+```
+
+## 📄 Licença
+
+Este projeto é open source e está disponível sob a [MIT License](LICENSE).
+
+## 🤝 Contato
+
+- GitHub: [@rafael-bogos](https://github.com/rafael-bogos)
+- LinkedIn: [rafael-bogos](https://linkedin.com/in/rafael-bogos)
+- Email: rafaelbogosbr10@gmail.com
+
+---
+
+**Desenvolvido com 💜 e muito código por Rafael Bogos**
+

@@ -104,66 +104,113 @@ export function Contact() {
         <section
             id="contact"
             ref={sectionRef}
-            className="min-h-screen bg-[#0f0f0f] text-white px-6 py-20 flex flex-col items-center justify-center"
+            className="min-h-screen bg-gradient-to-b from-black to-[#0a0a0a] text-white px-6 py-20 flex flex-col items-center justify-center"
         >
+            <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.8 }}
+                className="text-center mb-12"
+            >
+                <h2 className="text-5xl font-bold bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-text text-transparent mb-4">
+                    Vamos Conversar?
+                </h2>
+                <p className="text-gray-400 font-code">
+                    <span className="text-green-400">//</span> Envie uma mensagem e vamos criar algo incrível
+                </p>
+            </motion.div>
+
             {/* Terminal typing style */}
-            <div className="w-full max-w-3xl mb-10">
-                <div className="bg-black text-green-400 font-mono p-4 rounded-lg shadow-lg text-[12px] sm:text-lg">
-                    <span className="text-purple-500">{"~$ "}</span>
-                    {typedText}
-                    <span className="animate-pulse">|</span>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="w-full max-w-3xl mb-10"
+            >
+                <div className="bg-gray-900/90 backdrop-blur-sm border border-purple-500/20 text-green-400 font-code p-5 rounded-lg shadow-lg text-sm sm:text-base">
+                    <div className="flex items-center gap-2 mb-3 pb-2 border-b border-gray-800">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span className="ml-2 text-gray-500 text-xs">terminal</span>
+                    </div>
+                    <div>
+                        <span className="text-purple-400">rafael@portfolio</span>
+                        <span className="text-gray-500">:</span>
+                        <span className="text-cyan-400">~</span>
+                        <span className="text-gray-500">$ </span>
+                        {typedText}
+                        <span className="animate-pulse">|</span>
+                    </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Contact Form */}
             <motion.form
                 onSubmit={handleSubmit}
                 initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="w-full max-w-3xl bg-gray-900 p-8 rounded-lg shadow-lg flex flex-col space-y-6"
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="w-full max-w-3xl bg-gray-900/50 backdrop-blur-sm border border-purple-500/20 p-8 rounded-lg flex flex-col space-y-6"
             >
-                <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Seu nome"
-                    className="p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    required
-                />
-                {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+                <div>
+                    <label className="block text-sm font-code text-gray-400 mb-2">
+                        <span className="text-purple-400">const</span> name <span className="text-cyan-400">=</span>
+                    </label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Seu nome"
+                        className="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all font-code"
+                        required
+                    />
+                    {errors.name && <p className="text-red-400 text-sm mt-2 font-code">{errors.name}</p>}
+                </div>
 
-                <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Seu e-mail"
-                    className="p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-                    required
-                />
-                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                <div>
+                    <label className="block text-sm font-code text-gray-400 mb-2">
+                        <span className="text-purple-400">const</span> email <span className="text-cyan-400">=</span>
+                    </label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="seu@email.com"
+                        className="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all font-code"
+                        required
+                    />
+                    {errors.email && <p className="text-red-400 text-sm mt-2 font-code">{errors.email}</p>}
+                </div>
 
-                <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    placeholder="Sua mensagem"
-                    className="p-3 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
-                    required
-                ></textarea>
-                {errors.message && (
-                    <p className="text-red-500 text-sm">{errors.message}</p>
-                )}
+                <div>
+                    <label className="block text-sm font-code text-gray-400 mb-2">
+                        <span className="text-purple-400">const</span> message <span className="text-cyan-400">=</span>
+                    </label>
+                    <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={6}
+                        placeholder="Sua mensagem aqui..."
+                        className="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none font-code"
+                        required
+                    ></textarea>
+                    {errors.message && (
+                        <p className="text-red-400 text-sm mt-2 font-code">{errors.message}</p>
+                    )}
+                </div>
 
-                <button
+                <motion.button
                     type="submit"
-                    className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded transition-colors cursor-pointer"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white font-semibold py-4 rounded-lg transition-all shadow-lg hover:shadow-purple-500/50 font-code cursor-pointer"
                 >
-                    Enviar mensagem
-                </button>
+                    {"sendMessage()"}
+                </motion.button>
             </motion.form>
         </section>
     );
