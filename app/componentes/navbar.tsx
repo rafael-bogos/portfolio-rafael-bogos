@@ -109,46 +109,41 @@ export function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            <motion.div
-                initial={false}
-                animate={{
-                    height: isOpen ? "auto" : 0,
-                    opacity: isOpen ? 1 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="md:hidden overflow-hidden bg-black/95 backdrop-blur-lg border-t border-purple-500/20"
-            >
-                <div className="px-4 py-6 space-y-4">
-                    {menuItems.map((item, index) => (
-                        <motion.button
-                            key={item.id}
-                            onClick={() => scrollToSection(item.id)}
-                            className="block w-full text-left text-gray-300 hover:text-purple-400 transition-colors py-2 text-lg"
-                            initial={{ x: -20, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                            {item.name}
-                        </motion.button>
-                    ))}
-                    <div className="flex items-center space-x-6 pt-4 border-t border-purple-500/20">
-                        {socialLinks.map((link) => (
-                            <motion.a
-                                key={link.label}
-                                href={link.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-300 hover:text-cyan-400 text-2xl transition-colors"
-                                whileHover={{ scale: 1.2 }}
-                                whileTap={{ scale: 0.9 }}
-                                aria-label={link.label}
+            {isOpen && (
+                <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="md:hidden bg-black/95 backdrop-blur-lg border-t border-purple-500/20"
+                >
+                    <div className="px-4 py-6 space-y-4">
+                        {menuItems.map((item, index) => (
+                            <button
+                                key={item.id}
+                                onClick={() => scrollToSection(item.id)}
+                                className="block w-full text-left text-gray-300 hover:text-purple-400 transition-colors py-2 text-lg"
                             >
-                                {link.icon}
-                            </motion.a>
+                                {item.name}
+                            </button>
                         ))}
+                        <div className="flex items-center space-x-6 pt-4 border-t border-purple-500/20">
+                            {socialLinks.map((link) => (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-300 hover:text-cyan-400 text-2xl transition-colors"
+                                    aria-label={link.label}
+                                >
+                                    {link.icon}
+                                </a>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </motion.div>
+                </motion.div>
+            )}
         </motion.nav>
     );
 }
